@@ -30,7 +30,7 @@ public class EncapsulateTheDataTest {
 
         testData.setItemsReceived(randomPositiveNum);
 
-        assertEquals(randomPositiveNum, testData.getItemsReceived());
+        assertEquals(randomPositiveNum, testData.getItemsRecieved());
 
     }
 
@@ -41,7 +41,7 @@ public class EncapsulateTheDataTest {
 
         testData.setItemsReceived(randomNegativeNum);
 
-        assertEquals(0, testData.getItemsReceived());
+        assertEquals(0, testData.getItemsRecieved());
 
     }
 
