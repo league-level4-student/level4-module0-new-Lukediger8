@@ -72,6 +72,18 @@ public class IntroToEnums {
 		// 11. Print outs both of its temperatures.
 		System.out.println(matter.celciusTemp);
 		System.out.println(matter.convertToFahrenheit());
+		switch(matter) {
+		case SOLID:
+			System.out.println("popsicles");
+			break;
+		case GAS:
+			System.out.println("Pasta");
+			break;
+		case LIQUID:
+			System.out.println("Soda");
+			break;
+			
+		}
 		// 11. Create a switch statement that switches on the variable you created.
 		// Note: When creating the cases, you can omit the "StatesOfMatter."
 
