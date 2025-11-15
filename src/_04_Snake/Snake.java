@@ -61,7 +61,7 @@ public class Snake {
 		/*
 		 * Change the Location of each SnakeSegment in your snake ArrayList to the
 		 * Location of the segment in front of it.
-		 * 
+		 
 		 * Use a loop starting at the end of the ArrayList and stop before the head of
 		 * the snake (index 0) or you will go out of bounds.
 		 */
@@ -72,7 +72,11 @@ public class Snake {
 		 */
 
 		// Set the canMove member variable to true.
-
+		for(int i = snake.size()-1; i > 0; i--) {
+			snake.get(i).setLocation(snake.get(i-1).getLocation());
+		}
+		Location e = new Location(headX, headY);
+		snake.get(0).setLocation(e);
 	}
 
 	public void setDirection(Direction direction) {
@@ -81,10 +85,13 @@ public class Snake {
 		 * If the passed in direction is not the opposite direction of currentDirection
 		 * and canMove is true, set currentDirection to the passed in direction and
 		 * canMove to false
-		 * 
+		 
 		 * Hint: Use the isNotOppositeDirection method.
 		 */
-
+		if(this.isNotOppositeDirection(currentDirection)&& canMove == true) {
+			currentDirection.equals(direction);
+			canMove = false;
+		}
 	}
 
 	private boolean isNotOppositeDirection(Direction direction) {
@@ -96,25 +103,38 @@ public class Snake {
 		 * For example, if currentDirection is UP and the passed in direction is DOWN
 		 * this method should return false.
 		 */
-
+		if(currentDirection==Direction.UP && direction==Direction.DOWN) {
+			return false;
+		}
+		if(currentDirection == Direction.DOWN && direction == Direction.UP) {
+			return false;
+		}
+		if(currentDirection == Direction.RIGHT && direction == Direction.LEFT) {
+			return false;
+		}
+		if(currentDirection == Direction.LEFT && direction == Direction.RIGHT) {
+			return false;
+		}
+		else {
 		return true;
+		}
 	}
 
 	public void resetLocation() {
 
 		// Clear the snake.
-
+		snake.clear();
 		/*
 		 * Create a new Location object for the head at SnakeGame.WIDTH / 2,
 		 * SnakeGame.HEIGHT / 2.
 		 */
-
+		Location w = new Location(SnakeGame.WIDTH/2, SnakeGame.HEIGHT/2);
 		/*
 		 * Set the head member variable equal to a new SnakeSegment object. Use the
 		 * Location created in step 2 for the Location and the BODY_SIZE constant for
 		 * the size.
 		 */
-
+		
 		// Add the head to the snake.
 
 	}
